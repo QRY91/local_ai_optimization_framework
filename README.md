@@ -14,7 +14,7 @@ I was spending $100+/month on cloud AI and it was getting unsustainable. These a
 ## 🎯 The Problem I Had
 
 ### **Unsustainable AI Costs**
-I was hitting $40+ in 11 days on Zed/Cursor subscriptions, trending toward $120/month. For a solo dev working on docs and technical debt, that's not sustainable long-term.
+I was hitting $40+ in 11 days on Zed/Cursor subscriptions, trending toward $120/month. For a solo dev, that's not sustainable long-term.
 
 ### **My Approach**
 I put together some tools to:
