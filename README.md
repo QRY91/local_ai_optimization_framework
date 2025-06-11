@@ -6,8 +6,7 @@
 
 **My experiments reducing AI costs with local models**
 
-I was spending $100+/month on cloud AI and it was getting unsustainable. These are my notes and tools for running AI locally instead. Results so far: ~90% cost reduction for my workflows (docs and code analysis).
-
+I was spending $100+/month on cloud AI and it was getting unsustainable. These are my notes and tools for running AI locally instead.
 > **Note**: This worked for my setup - YMMV. Sharing in case it helps others in similar situations.
 
 ---
@@ -28,31 +27,6 @@ I put together some tools to:
 2. **Privacy**: Code stays on my machine
 3. **Learning**: Understanding how this stuff actually works
 4. **Independence**: Not worrying about rate limits or service changes
-
-Results: 90%+ cost reduction for routine work, with strategic cloud AI for complex tasks.
-
----
-
-## 📊 My Results So Far
-
-### **Cost Changes**
-```
-Before: ~$120/month cloud AI
-After:  ~$10/month (electricity + occasional cloud fallback)
-Savings: ~90% for my workflows
-```
-
-### **Performance Reality Check**
-- **Response Times**: 3-30s depending on task (vs 1-5s cloud)
-- **Quality**: Good enough for docs/code analysis, sometimes need cloud for complex stuff
-- **Use Cases**: Works well for documentation, basic code analysis, commit messages
-- **Hardware**: Tested on 16GB MacBook, seems to need 8GB+ RAM
-
-### **What I Learned**
-- Local models are surprisingly capable for routine tasks
-- Setup is more involved than I expected but worth it
-- Need different models for different use cases
-- Cloud AI still valuable for 5-10% of tasks
 
 ---
 
@@ -85,7 +59,7 @@ local_ai_optimization_framework/
 - **What it does**: Tests RAM usage, speed, thermal behavior
 - **Target**: My use case is docs and code analysis, but might work for other things
 
-#### **2. Model Selection** 
+#### **2. Model Selection**
 - **Documentation**: Tries to find models that are good at technical writing
 - **Code Analysis**: Tests models that understand code reasonably well
 - **Quick Tasks**: Fast models for simple stuff like commit messages
@@ -135,33 +109,6 @@ cd tools && go run model_comparison.go
 ls -la ../results/
 ```
 
----
-
-## 🎯 What I Use It For
-
-### **Documentation Generation**
-- **Models**: `mistral:7b` for most docs, `llama2:13b` when I need higher quality
-- **Works well for**: API docs, README files, technical documentation
-- **Performance**: 15-30s usually, quality is good enough for most cases
-- **When I use cloud**: Customer-facing docs that need to be perfect
-
-### **Code Analysis & Technical Debt**
-- **Models**: `codellama:7b` seems best for code stuff
-- **Works well for**: Basic code review, spotting obvious issues, documentation generation
-- **Performance**: 20-45s, pretty detailed analysis
-- **When I use cloud**: Complex architectural decisions, large refactoring plans
-
-### **Quick Development Tasks**
-- **Models**: `orca-mini:3b` for speed
-- **Works well for**: Commit messages, quick summaries, simple explanations
-- **Performance**: 2-5s, good enough quality
-- **When I use cloud**: Rarely, this model handles most quick tasks fine
-
-### **Fallback Strategy**
-I still budget ~$15/month for cloud AI when local models aren't cutting it (complex problems, tight deadlines, client-facing work).
-
----
-
 ## 📈 How to Tell If It's Working
 
 ### **Week 1 Goals**
@@ -197,7 +144,7 @@ This framework creates value beyond personal cost savings:
 
 #### **For Development Teams**
 - **Predictable Costs**: Fixed AI infrastructure costs
-- **Scalable**: Add developers without proportional cost increase  
+- **Scalable**: Add developers without proportional cost increase
 - **Customizable**: Models can be fine-tuned for team-specific needs
 - **Secure**: Complete control over AI processing and data
 
