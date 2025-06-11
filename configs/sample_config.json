@@ -1,0 +1,78 @@
+{
+  "models": [
+    "mistral:latest",
+    "llama2:7b",
+    "llama2:13b",
+    "codellama:7b",
+    "codellama:13b",
+    "dolphin-mistral:latest",
+    "orca-mini:3b",
+    "neural-chat:7b",
+    "starling-lm:7b",
+    "zephyr:7b-beta"
+  ],
+  "test_cases": [
+    {
+      "name": "Quick Capture - Bug Fix",
+      "description": "Fast insight capture for a bug fix during development",
+      "use_case": "capture",
+      "prompt": "Convert this development insight into a concise, professional summary: 'Fixed memory leak in connection pool by properly closing idle connections after 30s timeout. Issue was causing gradual memory growth in production.'"
+    },
+    {
+      "name": "Quick Capture - Feature Implementation", 
+      "description": "Fast insight capture for feature work",
+      "use_case": "capture",
+      "prompt": "Summarize this development work professionally: 'Implemented real-time notifications using WebSockets. Added connection management, message queuing, and automatic reconnection handling.'"
+    },
+    {
+      "name": "Technical Devlog - Architecture",
+      "description": "Detailed technical development log for architecture work",
+      "use_case": "devlog", 
+      "prompt": "Create a technical development log entry from these insights: 'Migrated from monolithic to microservices architecture', 'Implemented service mesh with Istio', 'Added distributed tracing with Jaeger', 'Set up centralized logging with ELK stack'. Format as markdown with technical details and lessons learned."
+    },
+    {
+      "name": "Technical Devlog - Performance",
+      "description": "Technical log focused on performance improvements",
+      "use_case": "devlog",
+      "prompt": "Generate a technical devlog from: 'Optimized database queries reducing response time from 500ms to 50ms', 'Implemented Redis caching layer', 'Added database connection pooling', 'Profiled and fixed N+1 query issues'. Include technical specifics and performance metrics."
+    },
+    {
+      "name": "Professional Blog - Project Success",
+      "description": "High-quality blog content about a successful project",
+      "use_case": "blog",
+      "prompt": "Transform these development activities into an engaging blog post for technical professionals: 'Led team migration of legacy system to cloud-native architecture', 'Achieved 99.9% uptime during transition', 'Reduced infrastructure costs by 40%', 'Improved deployment frequency from monthly to daily'. Include challenges overcome and lessons learned."
+    },
+    {
+      "name": "Professional Blog - Technical Deep Dive",
+      "description": "Educational blog post about technical implementation",
+      "use_case": "blog", 
+      "prompt": "Create an educational blog post from: 'Built custom rate limiting middleware using token bucket algorithm', 'Implemented circuit breaker pattern for external API calls', 'Added comprehensive monitoring and alerting'. Target audience: senior developers. Focus on technical decisions and trade-offs."
+    },
+    {
+      "name": "Social Media - Achievement",
+      "description": "Engaging social media post about technical achievement",
+      "use_case": "social",
+      "prompt": "Create engaging LinkedIn content from: 'Successfully migrated 1TB database with zero downtime', 'Reduced API latency by 80% through optimization', 'Team delivered critical feature 2 weeks ahead of schedule'. Keep professional but engaging, include relevant hashtags."
+    },
+    {
+      "name": "Social Media - Learning",
+      "description": "Social media post about technical learning experience", 
+      "use_case": "social",
+      "prompt": "Transform into engaging social media content: 'Deep dive into Kubernetes networking revealed performance bottlenecks', 'Learned about CNI plugins and network policies', 'Applied learnings to fix intermittent connection issues'. Share the learning journey with technical community."
+    },
+    {
+      "name": "Code Analysis - Refactoring",
+      "description": "Technical analysis of major code refactoring",
+      "use_case": "devlog",
+      "prompt": "Analyze and explain this refactoring work: 'Extracted authentication logic into separate microservice', 'Implemented OAuth2 with JWT tokens', 'Added role-based access control (RBAC)', 'Migrated user sessions to Redis'. Focus on architectural decisions, benefits, and migration strategy."
+    },
+    {
+      "name": "Code Analysis - Algorithm Optimization",
+      "description": "Technical explanation of algorithm improvements",
+      "use_case": "devlog", 
+      "prompt": "Create technical analysis of: 'Replaced O(n²) sorting algorithm with merge sort reducing processing time from 5s to 200ms for large datasets', 'Implemented binary search for lookup operations', 'Added memoization for recursive calculations'. Explain algorithmic improvements and performance gains."
+    }
+  ],
+  "timeout_sec": 60,
+  "runs": 3
+}

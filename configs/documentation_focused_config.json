@@ -1,0 +1,115 @@
+{
+  "description": "Documentation and Technical Debt Focused Configuration",
+  "target_workflows": [
+    "Technical documentation generation",
+    "Code analysis and technical debt identification",
+    "API documentation",
+    "Architecture documentation",
+    "Development process documentation"
+  ],
+  "models": [
+    "orca-mini:3b",
+    "mistral:7b",
+    "codellama:7b",
+    "llama2:13b"
+  ],
+  "test_cases": [
+    {
+      "name": "API Documentation Generation",
+      "description": "Generate comprehensive API documentation from code snippets",
+      "use_case": "documentation",
+      "priority": "quality",
+      "prompt": "Generate API documentation for this REST endpoint: POST /api/users - Creates a new user account. Parameters: username (string, required), email (string, required), password (string, required, min 8 chars). Returns: user object with id, username, email, created_at. Errors: 400 for validation, 409 for duplicate email.",
+      "expected_tokens": 300,
+      "max_response_time": 45
+    },
+    {
+      "name": "Technical Debt Analysis",
+      "description": "Analyze code for technical debt and improvement opportunities",
+      "use_case": "code_analysis",
+      "priority": "accuracy",
+      "prompt": "Analyze this code for technical debt: function processUserData(data) { var result = []; for (var i = 0; i < data.length; i++) { if (data[i].active == true && data[i].verified == true) { result.push({ id: data[i].id, name: data[i].firstName + ' ' + data[i].lastName, email: data[i].email }); } } return result; } Identify issues and suggest improvements.",
+      "expected_tokens": 400,
+      "max_response_time": 60
+    },
+    {
+      "name": "Architecture Documentation",
+      "description": "Document system architecture and design decisions",
+      "use_case": "architecture",
+      "priority": "quality",
+      "prompt": "Document the architecture for a microservices-based e-commerce system with the following components: User Service (authentication, profiles), Product Service (catalog, inventory), Order Service (cart, checkout, payments), Notification Service (email, SMS). Include service interactions, data flow, and key design decisions.",
+      "expected_tokens": 600,
+      "max_response_time": 90
+    },
+    {
+      "name": "README Generation",
+      "description": "Generate comprehensive README files for projects",
+      "use_case": "documentation",
+      "priority": "completeness",
+      "prompt": "Create a README for a TypeScript library called 'data-validator' that provides schema validation for JSON data. Features: type checking, custom validators, async validation, detailed error messages. Installation via npm. Usage examples for basic validation, custom rules, and async scenarios.",
+      "expected_tokens": 500,
+      "max_response_time": 60
+    },
+    {
+      "name": "Code Review Documentation",
+      "description": "Document code review findings and recommendations",
+      "use_case": "review",
+      "priority": "accuracy",
+      "prompt": "Document code review findings for a pull request that adds user authentication: 1) Password hashing uses bcrypt with default rounds, 2) JWT tokens have no expiration, 3) No rate limiting on login endpoint, 4) Error messages reveal whether user exists, 5) No password complexity requirements. Provide recommendations for each issue.",
+      "expected_tokens": 450,
+      "max_response_time": 75
+    },
+    {
+      "name": "Refactoring Plan Documentation",
+      "description": "Create documentation for refactoring initiatives",
+      "use_case": "planning",
+      "priority": "structure",
+      "prompt": "Create a refactoring plan for migrating a monolithic PHP application to microservices. Current system: 50k lines, MySQL database, handles user management, product catalog, orders, payments. Goal: extract user service first, then product service. Document phases, risks, rollback plans, and success metrics.",
+      "expected_tokens": 700,
+      "max_response_time": 120
+    },
+    {
+      "name": "Configuration Documentation",
+      "description": "Document system configuration and environment setup",
+      "use_case": "configuration",
+      "priority": "clarity",
+      "prompt": "Document the configuration for a Node.js application deployment. Environment variables: PORT (default 3000), DATABASE_URL (required), REDIS_URL (optional), JWT_SECRET (required), LOG_LEVEL (default info). Docker setup with multi-stage build. Nginx reverse proxy configuration. Include security considerations and troubleshooting tips.",
+      "expected_tokens": 400,
+      "max_response_time": 60
+    },
+    {
+      "name": "Meeting Notes Summarization",
+      "description": "Convert meeting notes into structured documentation",
+      "use_case": "summarization",
+      "priority": "speed",
+      "prompt": "Convert these meeting notes to structured documentation: 'Discussed API rate limiting implementation. Sarah suggested Redis for storage. Mike concerned about performance impact. Decided on 100 requests/minute for authenticated users, 10 for anonymous. Will implement gradual rollout. Tom to create monitoring dashboard. Next review in 2 weeks.' Format as decisions, action items, and next steps.",
+      "expected_tokens": 250,
+      "max_response_time": 30
+    }
+  ],
+  "performance_targets": {
+    "documentation": {
+      "max_response_time": 60,
+      "min_quality_score": 4.0,
+      "preferred_models": ["llama2:13b", "mistral:7b"]
+    },
+    "code_analysis": {
+      "max_response_time": 75,
+      "min_quality_score": 4.2,
+      "preferred_models": ["codellama:7b", "llama2:13b"]
+    },
+    "quick_capture": {
+      "max_response_time": 15,
+      "min_quality_score": 3.5,
+      "preferred_models": ["orca-mini:3b", "mistral:7b"]
+    }
+  },
+  "timeout_sec": 120,
+  "runs": 3,
+  "optimization_focus": "documentation_quality",
+  "fallback_strategy": {
+    "quality_threshold": 3.0,
+    "timeout_threshold": 90,
+    "fallback_model": "mistral:7b"
+  }
+}
